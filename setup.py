@@ -14,11 +14,18 @@ sys.stdout.write(GREEN + spaces + """
 '\n' + 'Version: {}1.0{} \n'.format(YELLOW, END).center(98))
 
 print("")
-
-print("{}[-]{}Please wait while the dependencies are installed. It may take a minute or two".format(YELLOW,WHITE))
-print("{}[-]{}Please enter the password if prompted".format(YELLOW,WHITE))
-time.sleep(2)
-os.system("sudo apt-get install python3-pip")
-os.system("pip3 install netifaces")
-os.system("sudo pip3 install scapy")
+inp = input("{}[-]{} You are about to install ARPShield. Do you want to continue? (Y/N)".format(YELLOW,WHITE)).capitalize()
+print(inp)
+if inp == "Y":
+    print("{}[-]{}Please wait while the dependencies are installed. It may take a minute or two".format(YELLOW,WHITE))
+    print("{}[-]{}Please enter the password if prompted".format(YELLOW,WHITE))
+    time.sleep(2)
+    os.system("sudo apt-get install python3-pip")
+    os.system("pip3 install netifaces")
+    os.system("sudo pip3 install scapy")
+elif inp == "N":
+    print("{}[-]{}Installation Aborted.{}".format(YELLOW, RED, WHITE))
+else:
+    print("{}[-]{}Unknown Input".format(YELLOW, WHITE))
+    exit(0)
 
