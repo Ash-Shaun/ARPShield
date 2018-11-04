@@ -1,0 +1,7 @@
+language: python
+sudo: enabled
+before_install:
+  - sudo apt-get install -y python3-pip
+  - sudo pip3 install netifaces
+  - sudo pip3 install scapy
+script ./setup
