@@ -2,7 +2,7 @@ import os,sys, subprocess
 from time import sleep, time
 
 RED, GREEN, BLUE, YELLOW, WHITE, END= '\033[1;31m', '\033[1;32m', '\033[1;34m', '\033[1;33m', '\033[1;37m', '\033[0m'
-spaces = " " * 76
+spaces = " " * 76 # Only for styling
 threshold = 12
 mac_dict = {}
 time_dict = {}
@@ -95,7 +95,7 @@ ip_of_selected_interface = getGateway("ip_of_selected_interface")
 
 
 def check_for_spoof(source, dest, s_mac, gatewaymac, gatewayip):
-    print(source,"is at", s_mac, "- Good ARP Packet")
+    print(source,"is at", s_mac)
     # check for packets to router
     if source == ip_of_selected_interface:
         if s_mac == mac_of_selected_interface:
